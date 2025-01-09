@@ -1,4 +1,4 @@
-# Diffusion Reconstruction of Ultrasound Images with Informative Uncertainty
+# Ultrasound Imaging Based on the Variance of a Diffusion Restoration Model
 
 The structure of the repository is:
 ```bash
@@ -22,7 +22,7 @@ The structure of the repository is:
 │   │   ├──<Test_scatterers>  # results
 │   ├── <picmus>              # for real-data test 
 │   │   ├──<DAS>              # the baseline
-│   │   ├──<Observation>      # y_0 (measurements) for diffusion models
+│   │   ├──<Observation>      # BH (measurements) for diffusion models
 │   │   ├──<SVD>              # https://drive.google.com/drive/folders/10KwoH5G-s8Gk_aCj7WxTZ_L3596u44dI?usp=sharing
 │   │   ├──<Test_picmus>      # results
 │   ├── <src>                 # help resources
