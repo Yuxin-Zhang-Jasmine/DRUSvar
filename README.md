@@ -37,13 +37,13 @@
 ├── <MATLABfiles> 
 │   ├── <numerical>             
 │   │   ├──<SimulatedData>      # simulated data
-│   │   │   ├──<additiveNoises> # -- the simulated $\mathbf{n} \sim \mathcal{N}(\mathbf{0},\gamma\mathrm{I})$ with varied value of $\gamma$
-│   │   │   ├──<cysts>          # -- the simulated $\mathbf{m} \odot \mathbf{p}$ with different $\mathbf{m}$s (multiplicative noise) for the cyst phantom
-│   │   │   ├──<scatterers>     # -- the simulated $\mathbf{m} \odot \mathbf{p}$ with different $\mathbf{m}$s (multiplicative noise) for the scatterer phantom
-│   │   │   ├──a_Simu_n.m       # -- script to simulate $\mathbf{n}$ 
-│   │   │   ├──b_Simu_p.m       # -- script to simulate $\mathbf{p}$ 
-│   │   │   ├──c_Simu.mp.m      # -- script to simulate $\mathbf{m} \odot \mathbf{p}$
-│   │   │   ├──anisoKernel.m    # -- script to illustrate the anisotropic degradation kernel.
+│   │   │   ├──<additiveNoises> # -- the simulated additive noise maps
+│   │   │   ├──<cysts>          # -- the simulated reflectivity maps for the cyst phantom
+│   │   │   ├──<scatterers>     # -- the simulated reflectivity maps for the scatterer phantom
+│   │   │   ├──a_Simu_n.m       # -- to simulate additive noise 
+│   │   │   ├──b_Simu_p.m       # -- to simulate echogenicity map 
+│   │   │   ├──c_Simu.mp.m      # -- to simulate reflectivity map
+│   │   │   ├──anisoKernel.m    # -- to illustrate the anisotropic degradation kernel.
 │   │   ├──<Test_cysts>         # RESULTS AND IMAGES USED IN THE PAPER
 │   │   ├──<Test_scatterers>    # RESULTS AND IMAGES USED IN THE PAPER
 │   ├── <picmus>              
@@ -69,15 +69,16 @@ The ultrasound datasets and the code for fine-tuning can be found in [this repos
 Although the 3-channel models demonstrated good restoration quality, we further modified the fine-tuning process to support 1-channel (1c) data. This adjustment eliminates the need for the repeat and average operations, streamlining the process for single-channel ultrasound images.
 
 ## Reproduction
-Fig. 1 (left) -- run the script: `../MATLABfiles/numerical/Test_cysts/a_phantom_display.m`. \
-Fig. 1 (right) -- run the script: `../MATLABfiles/numerical/Test_scatterers/a_phantom_display.m`. \
-Fig. 2 (lineCharts) -- run the script: `../MATLABfiles/numerical/Test_cysts/b_lineCharts.m`. \
-Fig. 2 (images) -- run the script: `../MATLABfiles/numerical/Test_cysts/c_images.m`. \
-Fig. 3 (lineCharts) -- run the script: `../MATLABfiles/numerical/Test_scatterers/b_lineCharts.m`. \
-Fig. 3 (images) -- run the script: `../MATLABfiles/numerical/Test_scatterers/c_images.m`. 
-
-Fig. 4 -- run the script: `../MATLABfiles/picmus/Test_picmus/picmusImages2.m`. \
-![alt text](https://github.com/Yuxin-Zhang-Jasmine/DRUSvar/blob/main/MATLABfiles/picmus/Test_picmus/images/Picmus.pdf)
+``` bash
+Fig. 1 (left)      -- run the script: `../MATLABfiles/numerical/Test_cysts/a_phantom_display.m`.
+Fig. 1 (right)     -- run the script: `../MATLABfiles/numerical/Test_scatterers/a_phantom_display.m`
+Fig. 2 (lineCharts)-- run the script: `../MATLABfiles/numerical/Test_cysts/b_lineCharts.m`
+Fig. 2 (images)    -- run the script: `../MATLABfiles/numerical/Test_cysts/c_images.m`
+Fig. 3 (lineCharts)-- run the script: `../MATLABfiles/numerical/Test_scatterers/b_lineCharts.m`
+Fig. 3 (images)    -- run the script: `../MATLABfiles/numerical/Test_scatterers/c_images.m`
+Fig. 4             -- run the script: `../MATLABfiles/picmus/Test_picmus/picmusImages2.m`
+```
+![alt text](/MATLABfiles/picmus/Test_picmus/images/Picmus.png)
 
 ### Run Diffusion Sampling
 on HPC using slurm, or as follows:
