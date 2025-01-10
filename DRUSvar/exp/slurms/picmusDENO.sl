@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=30
 #SBATCH --output=picmusDENO.out
 #SBATCH --error=picmusDENO.err
-#SBATCH --time=200
+#SBATCH --time=60
 
 export CONFIG=/home/yzhang2018@ec-nantes.fr/DRUSvar/DRUSvar/configs/imagenet_256_1c.yml
 export MODEL_PATH=both1c

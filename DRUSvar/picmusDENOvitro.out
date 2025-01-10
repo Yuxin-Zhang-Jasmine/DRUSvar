@@ -1,0 +1,54 @@
+CONFIG
+MODEL_PATH
+MATLAB_PATH
+/run/current-system/profile/lib
+/run/current-system/profile/lib:/micromamba/yzhang2018@ec-nantes.fr/envs/ddrm/lib/
+Path of the current ckpt: exp/logs/vitro/model006000.pt
+data channels : 3
+model in_channels : 3
+The corresponding MATLAB path: /home/yzhang2018@ec-nantes.fr/DRUSvar/MATLABfiles/
+len(dasLst) =  40
+len(gammaLst) =  40
+Results will be saved to: /home/yzhang2018@ec-nantes.fr/DRUSvar/MATLABfiles/picmus/Test_picmus/results/DENOvitro/
+Loading the SVD of the degradation matrix (DENOvitro)
+Start restoration
+Finish 1
+Finish 2
+Finish 3
+Finish 4
+Finish 5
+Finish 6
+Finish 7
+Finish 8
+Finish 9
+Finish 10
+Finish 11
+Finish 12
+Finish 13
+Finish 14
+Finish 15
+Finish 16
+Finish 17
+Finish 18
+Finish 19
+Finish 20
+Finish 21
+Finish 22
+Finish 23
+Finish 24
+Finish 25
+Finish 26
+Finish 27
+Finish 28
+Finish 29
+Finish 30
+Finish 31
+Finish 32
+Finish 33
+Finish 34
+Finish 35
+Finish 36
+Finish 37
+Finish 38
+Finish 39
+Finish 40

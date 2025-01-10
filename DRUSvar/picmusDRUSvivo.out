@@ -1,0 +1,34 @@
+CONFIG
+MODEL_PATH
+MATLAB_PATH
+/run/current-system/profile/lib
+/run/current-system/profile/lib:/micromamba/yzhang2018@ec-nantes.fr/envs/ddrm/lib/
+Path of the current ckpt: exp/logs/vivo/model004000.pt
+data channels : 3
+model in_channels : 3
+The corresponding MATLAB path: /home/yzhang2018@ec-nantes.fr/DRUSvar/MATLABfiles/
+len(dasLst) =  20
+len(gammaLst) =  20
+Results will be saved to: /home/yzhang2018@ec-nantes.fr/DRUSvar/MATLABfiles/picmus/Test_picmus/results/DRUSvivo/
+Loading the SVD of the degradation matrix (DRUSvivo)
+Start restoration
+Finish 1
+Finish 2
+Finish 3
+Finish 4
+Finish 5
+Finish 6
+Finish 7
+Finish 8
+Finish 9
+Finish 10
+Finish 11
+Finish 12
+Finish 13
+Finish 14
+Finish 15
+Finish 16
+Finish 17
+Finish 18
+Finish 19
+Finish 20

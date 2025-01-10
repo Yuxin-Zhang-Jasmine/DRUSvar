@@ -14,7 +14,7 @@ scan = linear_scan(linspace(-0.018,0.018,imgSize).', linspace(0.01,0.036+0.01,im
 c = 12;  % 12 levels of additive noise
 repeat = 20;
 REPEAT = 20;
-m = [1, 2, 3, 4, 5, 6, 7, 8];
+m = [1]; %, 2, 3, 4, 5, 6, 7, 8];
 filepath = [pwd '/numerical/Test_cysts/results/sigma1.2/'];
 metrics = cell(length(m),4,7);
 
@@ -110,9 +110,12 @@ for p = 1:length(m)
 end
 % save([pwd '/numerical/Test_cysts/results/metrics.mat'], 'metrics', 'c'); 
 
-%% load the metrics and plot
+
+
+
+% load the metrics and plot
 clc
-load([pwd '/numerical/Test_cysts/results/metrics.mat'])
+%load([pwd '/numerical/Test_cysts/results/metrics.mat'])
 flag_y=1;
 type = 1;  fontsize=19;
 

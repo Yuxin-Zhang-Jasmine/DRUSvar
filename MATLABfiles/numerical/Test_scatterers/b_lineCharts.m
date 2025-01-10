@@ -14,7 +14,7 @@ scan = linear_scan(linspace(-0.018,0.018,imgSize).', linspace(0.01,0.036+0.01,im
 c = 11;  % number of levels of the additive noise
 repeat = 20;
 REPEAT = 20;
-m = [1,2,3,4,5,6,7,8,9]; % 9 realizations of the multiplicative noise 
+m = [1]; %,2,3,4,5,6,7,8,9]; % 9 realizations of the multiplicative noise 
 filepath = [pwd '/numerical/Test_scatterers/results/sigma1.2/'];
 metrics = cell(length(m),4,7);
 
@@ -107,7 +107,10 @@ for p = 1:length(m)
 end
 % save([pwd '/numerical/Test_scatterers/results/metrics.mat'], 'metrics', 'c'); 
 
-%% load the metrics and plot
+
+
+
+% load the metrics and plot
 clc
 % load([pwd '/numerical/Test_scatterers/results/metrics.mat'])
 type = 1;  fontsize=19;

@@ -4,8 +4,6 @@ classify_image_graph_def.pb
 
 #intellij configs
 .idea/
-DRUSvar/exp/logs/both1c/model004000.pt
-DRUSvar/exp/logs/image1c/model005000.pt
-DRUSvar/exp/logs/vitro1c/model004000.pt
+DRUSvar/exp/logs/*
 MATLABfiles/picmus/SVD/*.mat
 

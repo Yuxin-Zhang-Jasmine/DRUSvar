@@ -31,7 +31,7 @@ def parse_args_and_config():
     )
     parser.add_argument(
         "--deg", type=str, required=True,
-        help="Degradation Model select from [DRUS || DENO || NumericalCysts || NumericalScatterers]",
+        help="Degradation Model select from [DRUS || DENO || DRUSvitro || DENOvitro || DRUSvivo || DENOvivo || NumericalCysts || NumericalScatterers]",
     )
     parser.add_argument(
         "--matlab_path", type=str, required=True,

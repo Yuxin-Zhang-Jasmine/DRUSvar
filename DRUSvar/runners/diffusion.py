@@ -101,16 +101,22 @@ class Diffusion(object):
         print('The corresponding MATLAB path: ' + args.matlab_path)
 
         # ** define the dasLst, the gammaLst, and the savepath
-        if args.deg in ["DRUS", "DENO"]:
-            repeat = 20
-            dasLst = ['simu_reso', 'simu_cont', 'expe_reso', 'expe_cont', 'expe_cross', 'expe_long'] * repeat
-            if args.deg == "DENO":
-                gammaLst = [0.11, 0.12, 0.16, 0.025, 0.02, 0.05] * repeat
-            elif args.deg == "DRUS":
-                gammaLst = [30, 65, 90, 55, 12, 1.5] * repeat
-            resultsPath = args.matlab_path + 'picmus/Test_picmus/results/' + args.deg + '/'
-        elif args.deg in ["NumericalCysts", "NumericalScatterers"]:
-            repeat = 20
+        repeat = 10
+        resultsPath = args.matlab_path + 'picmus/Test_picmus/results/' + args.deg + '/'
+        dasLst = ['simu_reso', 'simu_cont', 'expe_reso', 'expe_cont', 'expe_cross', 'expe_long'] * repeat
+        if args.deg[:4] == "DENO":
+            gammaLst = [0.11, 0.12, 0.16, 0.025, 0.02, 0.05] * repeat
+        elif args.deg[:4] == "DRUS":
+            gammaLst = [30, 65, 90, 55, 12, 1.5] * repeat
+
+        if args.deg[4:] == "vitro":
+            dasLst = dasLst[:4] * repeat
+            gammaLst = gammaLst[:4] * repeat
+        elif args.deg[4:] == "vivo":
+            dasLst = dasLst[4:6] * repeat
+            gammaLst = gammaLst[4:6] * repeat
+
+        if args.deg in ["NumericalCysts", "NumericalScatterers"]:
             if args.deg == "NumericalCysts":
                 numeType = 'cysts'
                 gammaLevels = [0.02, 0.05, 0.08, 0.11, 0.14, 0.17, 0.2, 0.23, 0.26, 0.29, 0.32, 0.35]  # Cysts
@@ -131,14 +137,14 @@ class Diffusion(object):
 
         # ** get SVD results of the model matrix **
         print(f'Loading the SVD of the degradation matrix (' + args.deg + ')')
-        if args.deg == "DRUS":  # apply on the PICMUS dataset with the full SVD of model matrix BH
+        if args.deg[:4] == "DRUS":  # apply on the PICMUS dataset with the full SVD of model matrix BH
             from functions.svd_replacement import ultrasound0
             svdPath = args.matlab_path + 'picmus/SVD/'
             Up = torch.from_numpy(mat73.loadmat(svdPath + 'Ud.mat')['Ud'])
             lbdp = torch.from_numpy(mat73.loadmat(svdPath + 'Sigma.mat')['Sigma'])
             Vp = torch.from_numpy(mat73.loadmat(svdPath + 'Vd.mat')['Vd'])
             H_funcs = ultrasound0(config.data.channels, Up, lbdp, Vp, self.device)
-        elif args.deg == "DENO":  # apply on the PICMUS dataset with simple denoising (BH \approx Identity)
+        elif args.deg[:4] == "DENO":  # apply on the PICMUS dataset with simple denoising (BH \approx Identity)
             from functions.svd_replacement import Denoising
             H_funcs = Denoising(config.data.channels, config.data.image_size, self.device)
         elif args.deg in ["NumericalCysts", "NumericalScatterers"]:  # apply on the numerical dataset (Cysts and Scatterers) degraded with a 2D blurring kernel
@@ -162,10 +168,10 @@ class Diffusion(object):
             dasSaveName = dasLst[idx_so_far] + '.mat'
             gamma = gammaLst[idx_so_far]
             # load/simulate the observation y_0  & define the save path
-            if args.deg in ["DRUS", "DENO"]:
-                y_0 = torch.from_numpy(mat73.loadmat(args.matlab_path + 'picmus/Observation/'+args.deg+'/' + dasSaveName)['By'])
+            if args.deg[:4] in ["DRUS", "DENO"]:
+                y_0 = torch.from_numpy(mat73.loadmat(args.matlab_path + 'picmus/Observation/'+args.deg[:4]+'/' + dasSaveName)['By'])
                 y_0 = (y_0.view(1, -1)).repeat(1, config.data.channels).to(self.device)
-                gamma = gamma * sqrt(3)
+                gamma = gamma * sqrt(config.data.channels)
             elif args.deg in ["NumericalCysts", "NumericalScatterers"]:
                 # load the ground Truth x_orig, (dasSaveName has format signed_m5_XX.mat)
                 x_orig = torch.from_numpy(
@@ -197,7 +203,7 @@ class Diffusion(object):
             with torch.no_grad():
                 x, _ = self.sample_image(x, model, H_funcs, y_0, gamma, last=False, cls_fn=cls_fn, timesteps=args.timesteps)
             # save the DDRM restored image as .mat
-            savemat(os.path.join(resultsPath, f"{idx_so_far + 1}_{-1}.mat"),{'x': x[-1][0].detach().cpu().numpy()})
+            savemat(os.path.join(resultsPath, f"{idx_so_far + 1}_{-1}.mat"),{'x': x[-1][0].detach().cpu().numpy().mean(0,keepdims=1)})
             idx_so_far += y_0.shape[0]  # iterate multiple images
             print(f'Finish {idx_so_far}')
 

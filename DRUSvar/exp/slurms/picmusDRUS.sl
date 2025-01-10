@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=picmusDRUS
+#SBATCH --job-name=picmusDRUS	
 #SBATCH --qos=short
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1

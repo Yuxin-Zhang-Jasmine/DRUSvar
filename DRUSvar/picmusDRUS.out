@@ -1,15 +1,15 @@
-EUSIPCO2024_CONFIG
-EUSIPCO2024_MODEL_PATH
-EUSIPCO2024_MATLAB_PATH
+CONFIG
+MODEL_PATH
+MATLAB_PATH
 /run/current-system/profile/lib
 /run/current-system/profile/lib:/micromamba/yzhang2018@ec-nantes.fr/envs/ddrm/lib/
 Path of the current ckpt: exp/logs/both1c/model004000.pt
 data channels : 1
 model in_channels : 1
-The corresponding MATLAB path: /home/yzhang2018@ec-nantes.fr/EUSIPCO2024/MATLABfiles/
-len(dasLst) =  120
-len(gammaLst) =  120
-Results will be saved to: /home/yzhang2018@ec-nantes.fr/EUSIPCO2024/MATLABfiles/picmus/Test_picmus/results/DRUS/
+The corresponding MATLAB path: /home/yzhang2018@ec-nantes.fr/DRUSvar/MATLABfiles/
+len(dasLst) =  60
+len(gammaLst) =  60
+Results will be saved to: /home/yzhang2018@ec-nantes.fr/DRUSvar/MATLABfiles/picmus/Test_picmus/results/DRUS/
 Loading the SVD of the degradation matrix (DRUS)
 Start restoration
 Finish 1
@@ -72,63 +72,3 @@ Finish 57
 Finish 58
 Finish 59
 Finish 60
-Finish 61
-Finish 62
-Finish 63
-Finish 64
-Finish 65
-Finish 66
-Finish 67
-Finish 68
-Finish 69
-Finish 70
-Finish 71
-Finish 72
-Finish 73
-Finish 74
-Finish 75
-Finish 76
-Finish 77
-Finish 78
-Finish 79
-Finish 80
-Finish 81
-Finish 82
-Finish 83
-Finish 84
-Finish 85
-Finish 86
-Finish 87
-Finish 88
-Finish 89
-Finish 90
-Finish 91
-Finish 92
-Finish 93
-Finish 94
-Finish 95
-Finish 96
-Finish 97
-Finish 98
-Finish 99
-Finish 100
-Finish 101
-Finish 102
-Finish 103
-Finish 104
-Finish 105
-Finish 106
-Finish 107
-Finish 108
-Finish 109
-Finish 110
-Finish 111
-Finish 112
-Finish 113
-Finish 114
-Finish 115
-Finish 116
-Finish 117
-Finish 118
-Finish 119
-Finish 120
