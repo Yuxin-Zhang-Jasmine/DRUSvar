@@ -97,8 +97,6 @@ where
 -   on the picmus 6 datasets (4 vitro + 2 vivo) with the fine-tuned both1c model. Results will be saved in `../MATLABfiles/picmus/Test_picmus/results/DRUS/` and `../MATLABfiles/picmus/Test_picmus/results/DENO/`.
     ```
     python /home/.../DRUSvar/main.py --ni --config /home/.../DRUSvar/configs/imagenet_256_1c.yml --doc both1c  --ckpt model004000.pt  --deg DRUS --matlab_path /home/.../MATLABfiles/
-    ```
-    ```
     python /home/.../DRUSvar/main.py --ni --config /home/.../DRUSvar/configs/imagenet_256_1c.yml --doc both1c  --ckpt model004000.pt  --deg DENO --matlab_path /home/.../MATLABfiles/
     ```
     After finishing the diffusion sampling process for DRUS and DENO, by running `picmusImages.m`, you can see a image similar to the paper's Fig. 4.
@@ -110,15 +108,11 @@ where
 -   process 4 vitro datasets with the fine-tuned vitro model. Results will be saved in `../MATLABfiles/picmus/Test_picmus/results/DRUSvitro/` and `../MATLABfiles/picmus/Test_picmus/results/DENOvitro/`.
     ```
     python /home/.../DRUSvar/main.py --ni --config /home/.../DRUSvar/configs/imagenet_256_3c.yml --doc vitro  --ckpt model006000.pt  --deg DRUSvitro --matlab_path /home/.../MATLABfiles/
-    ```
-    ```
     python /home/.../DRUSvar/main.py --ni --config /home/.../DRUSvar/configs/imagenet_256_3c.yml --doc vitro  --ckpt model006000.pt  --deg DENOvitro --matlab_path /home/.../MATLABfiles/
     ```
     process 2 vivo datasets with the fine-tuned vivo model. Results will be saved in `../MATLABfiles/picmus/Test_picmus/results/DRUSvivo/` `../MATLABfiles/picmus/Test_picmus/results/DENOvivo/`.
     ```
     python /home/.../DRUSvar/main.py --ni --config /home/.../DRUSvar/configs/imagenet_256_3c.yml --doc vivo  --ckpt model004000.pt  --deg DRUSvivo --matlab_path /home/.../MATLABfiles/
-    ```
-    ```
     python /home/.../DRUSvar/main.py --ni --config /home/.../DRUSvar/configs/imagenet_256_3c.yml --doc vivo  --ckpt model004000.pt  --deg DENOvivo --matlab_path /home/.../MATLABfiles/
     ```
     After finishing, run `picmusImages2.m`
